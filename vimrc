@@ -23,6 +23,11 @@ filetype plugin indent on    " required
 inoremap jj <Esc>
 set pastetoggle=<F2>
 
+
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_powerline_fonts = 1
+set guifont=Deja\ Vu\ Sans\ Mono\ for\ Powerline\ 11
 "Improve splitting behaviour
 set splitbelow
 set splitright
@@ -34,8 +39,9 @@ nnoremap <C-H> <C-W><C-H>
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 "Theme settings
+set t_Co=256
 if has ('gui_running')
-	colorscheme base16-default-dark
+	colorscheme solarized
 endif
 
 syntax enable " Turn on syntax highlighting  
