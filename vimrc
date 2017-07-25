@@ -29,8 +29,6 @@ set pastetoggle=<F2>
 map <silent> <C-n> :NERDTreeToggle<CR>
 
 "airline changes, to get these to work install these https://github.com/powerline/fonts
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
 let g:airline_powerline_fonts = 1
 set guifont=Deja\ Vu\ Sans\ Mono\ for\ Powerline\ 11
 set noshowmode
@@ -76,7 +74,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 "Theme settings
 set t_Co=256
 if has ('gui_running')
-	colorscheme solarized
+	colorscheme base16-default-dark
 endif
 
 syntax enable " Turn on syntax highlighting  
