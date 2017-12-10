@@ -13,7 +13,6 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'chriskempson/base16-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
@@ -22,7 +21,8 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 "--------My Changes---------"
-
+set ignorecase
+set smartcase
 "Hotkeys
 inoremap jj <Esc>
 set pastetoggle=<F2>
@@ -87,7 +87,6 @@ set number
 
 "Turn on spellcheck if its a .txt file or .tex file
 autocmd BufNewFile,BufRead *.tex set spell
-autocmd BufNewFile,BufRead *.txt set spell
 
 "Make python behaviour better
 au BufNewFile,BufRead *.py
@@ -101,4 +100,4 @@ nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
 "Misc
 set hidden " Leave hidden buffers open  
 set history=200 "by default Vim saves your last 8 commands.  We can handle more
-:set tabstop=2 shiftwidth=2
+:set tabstop=3 shiftwidth=3
