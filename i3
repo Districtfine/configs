@@ -197,6 +197,7 @@ bar {
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Kalu"] floating enable
 for_window [class="Thunar"] floating enable
+for_window [class="File-roller"] floating enable
 
 
 # Multimedia Keys
@@ -245,5 +246,6 @@ exec --no-startup-id "compton -b"
 exec_always feh --bg-scale /home/arseni/Pictures/wallpapers/wallpaper.jpg
 exec --no-startup-id nm-applet
 exec xset r rate 500 25
+exec redshift
 exec --no-startup-id "nitrogen --restore"
 exec --no-startup-id "sleep 5s && kalu"
