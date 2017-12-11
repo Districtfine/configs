@@ -13,7 +13,8 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 9
+#font pango:monospace 9
+font pango:System San Francisco Display 10
 
 # thin borders
 hide_edge_borders both
@@ -39,7 +40,7 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec rofi -show run
 
 # change focus
 bindsym $mod+h focus left
@@ -76,7 +77,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+Shift+s layout stacking
-bindsym $mod+Shift+w layout tabbed
+bindsym $mod+Shift+w layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -90,11 +91,17 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3: "
+set $ws4 "4: "
+
+
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -103,10 +110,10 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
@@ -114,6 +121,9 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+assign [class="Firefox"] $ws1
+for_window [class="Spotify"] move to workspace $ws2
+assign [class="Steam"] $ws4
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
@@ -171,7 +181,7 @@ client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color       
 # finds out, if available)
 bar {
 	status_command i3status
-	font pango:monospace 9
+	font pango:San Fransisco Display 9
         
 	colors {
 		background $bg-color
@@ -186,6 +196,7 @@ bar {
 # floating windows
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Kalu"] floating enable
+for_window [class="Thunar"] floating enable
 
 
 # Multimedia Keys
@@ -201,16 +212,15 @@ bindsym $mod+XF86AudioLowerVolume exec amixer -D pulse sset Master 1%- && pkill 
 # mute
 bindsym XF86AudioMute exec amixer sset Master toggle && killall -USR1 i3blocks
 
-#bindsym XF86AudioPlay exec playerctl play
-#bindsym XF86AudioPause exec playerctl pause
-#bindsym XF86AudioNext exec playerctl next
-#bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
-bindsym XF86AudioPlay exec mocp --toggle-pause
-bindsym XF86AudioPause exec mocp --toggle-pause
-bindsym XF86AudioStop exec mocp --togle-pause
-bindsym XF86AudioNext exec mocp --next
-bindsym XF86AudioPrev exec mocp --previous
+#bindsym XF86AudioPlay exec mocp --toggle-pause
+#bindsym XF86AudioPause exec mocp --toggle-pause
+#bindsym XF86AudioStop exec mocp --togle-pause
+#bindsym XF86AudioNext exec mocp --next
+#bindsym XF86AudioPrev exec mocp --previous
 
 bindsym $mod+F5 exec mocp --toggle-pause
 bindsym $mod+F6 exec mocp --stop
@@ -221,12 +231,19 @@ bindsym $mod+F8 exec mocp --next
 bindsym $mod+w exec "/usr/bin/firefox"
 bindsym $mod+n exec "/usr/bin/thunar"
 
+# Floating windows
+for_window [class="File-Roller"] floating enable
 # Redirect sound to headphones
 bindsym $mod+m exec "/usr/local/bin/switch-audio-port"
-
+# Autostart workspaces
+exec firefox
+exec spotify
+exec steam
 # Autostart apps
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id "compton -cC"
+exec --no-startup-id "compton -b"
+exec_always feh --bg-scale /home/arseni/Pictures/wallpapers/wallpaper.jpg
 exec --no-startup-id nm-applet
+exec xset r rate 500 25
 exec --no-startup-id "nitrogen --restore"
 exec --no-startup-id "sleep 5s && kalu"
