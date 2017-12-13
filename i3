@@ -246,6 +246,7 @@ exec --no-startup-id "compton -b"
 exec_always feh --bg-scale /home/arseni/Pictures/wallpapers/wallpaper.jpg
 exec --no-startup-id nm-applet
 exec xset r rate 500 25
-exec redshift
+exec redshift 5500:3000
+exec imwheel
 exec --no-startup-id "nitrogen --restore"
 exec --no-startup-id "sleep 5s && kalu"
