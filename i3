@@ -131,7 +131,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Log out' 'i3-msg exit' -b 'Shut down' 'poweroff' -b 'Restart' 'reboot'"
 
 # lock
 bindsym $mod+Shift+x exec i3lock --color 475263
@@ -246,7 +246,8 @@ exec --no-startup-id "compton -b"
 exec_always feh --bg-scale /home/arseni/Pictures/wallpapers/wallpaper.jpg
 exec --no-startup-id nm-applet
 exec xset r rate 500 25
-exec redshift 5500:3000
+exec redshift 5500:2000
 exec imwheel
 exec --no-startup-id "nitrogen --restore"
 exec --no-startup-id "sleep 5s && kalu"
+exec xmodmap -e "pointer = 3 2 1"
