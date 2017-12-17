@@ -1,0 +1,26 @@
+include "%L"
+
+<Multi_key> <c> <x> : "ĉ"
+<Multi_key> <c> <X> : "ĉ"
+<Multi_key> <C> <x> : "Ĉ"
+<Multi_key> <C> <X> : "Ĉ"
+
+<Multi_key> <s> <x> : "ŝ"
+<Multi_key> <s> <X> : "ŝ"
+<Multi_key> <S> <x> : "Ŝ"
+<Multi_key> <S> <X> : "Ŝ"
+
+<Multi_key> <g> <x> : "ĝ"
+<Multi_key> <g> <X> : "ĝ"
+<Multi_key> <G> <x> : "Ĝ"
+<Multi_key> <G> <X> : "Ĝ"
+
+<Multi_key> <u> <x> : "ŭ"
+<Multi_key> <u> <X> : "ŭ"
+<Multi_key> <u> <x> : "Ŭ"
+<Multi_key> <u> <X> : "Ŭ"
+
+<Multi_key> <j> <x> : "ĵ"
+<Multi_key> <j> <X> : "ĵ"
+<Multi_key> <J> <x> : "Ĵ"
+<Multi_key> <J> <X> : "Ĵ"
