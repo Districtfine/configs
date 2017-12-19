@@ -251,3 +251,4 @@ exec imwheel
 exec --no-startup-id "nitrogen --restore"
 exec --no-startup-id "sleep 5s && kalu"
 exec xmodmap -e "pointer = 3 2 1"
+exec setxkbmap -option compose:ralt
