@@ -4,7 +4,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 "-----MY PLUGINS-----"
-
 Plugin 'tpope/vim-fugitive'
 Plugin 'L9'
 Plugin 'altercation/vim-colors-solarized'
@@ -15,22 +14,14 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-
 "---------END----------"
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-"--------My Changes---------"
-set ignorecase
-set smartcase
-"Hotkeys
-inoremap jj <Esc>
-set pastetoggle=<F2>
-map <silent> <C-n> :NERDTreeToggle<CR>
-
+"--------Airline Changes---------"
 "airline changes, to get these to work install these https://github.com/powerline/fonts
 let g:airline_powerline_fonts = 1
-set guifont=Deja\ Vu\ Sans\ Mono\ for\ Powerline\ 10
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9
 set noshowmode
 
 if !exists('g:airline_symbols')
@@ -60,31 +51,15 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
-
-"utilisnips changes, got this code to make utilisnips and YCM to play nice here https://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
-function! g:UltiSnips_Complete()
-    call UltiSnips#ExpandSnippet()
-    if g:ulti_expand_res == 0
-        if pumvisible()
-            return "\<C-n>"
-        else
-            call UltiSnips#JumpForwards()
-            if g:ulti_jump_forwards_res == 0
-               return "\<TAB>"
-            endif
-        endif
-    endif
-    return ""
-endfunction
-
-au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsListSnippets="<c-e>"
-" this mapping Enter key to <C-y> to chose the current highlight item 
-" and close the selection list, same as other IDEs.
-" CONFLICT with some plugins like tpope/Endwise
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
+"--------My Changes---------"
+set ignorecase
+set smartcase
+set encoding=utf-8
+"Hotkeys
+inoremap jj <Esc>
+set pastetoggle=<F2>
+map <silent> <C-n> :NERDTreeToggle<CR>
+nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
 
 "Improve splitting behaviour
 set splitbelow
@@ -94,7 +69,6 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-
 "Remove auto commenting behaviour
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
@@ -103,7 +77,6 @@ set t_Co=256
 if has ('gui_running')
 	colorscheme base16-default-dark
 endif
-
 syntax enable " Turn on syntax highlighting  
 set number
 :set guioptions-=m  "remove menu bar
@@ -112,9 +85,14 @@ set number
 :set guioptions-=L  "remove left-hand scroll bar
 
 
-"Turn on spellcheck if its a .txt file or .tex file
-autocmd BufNewFile,BufRead *.tex set spell
+	
+"Misc
+set hidden " Leave hidden buffers open  
+set history=200 "by default Vim saves your last 8 commands.  We can handle more
+:set tabstop=3 shiftwidth=3 expandtab softtabstop=3
 
+
+"--------File Specific Behaviour---------"
 "Make python behaviour better
 au BufNewFile,BufRead *.py
     \ set textwidth=79 |
@@ -122,9 +100,4 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix
 
-nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
-
-"Misc
-set hidden " Leave hidden buffers open  
-set history=200 "by default Vim saves your last 8 commands.  We can handle more
-:set tabstop=3 shiftwidth=3
+autocmd BufNewFile,BufRead *.tex set spell "Turn on spellcheck if its a .txt file or .tex file
