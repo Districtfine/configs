@@ -5,7 +5,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 "-----MY PLUGINS-----"
 Plugin 'tpope/vim-fugitive'
-Plugin 'L9'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jiangmiao/auto-pairs'

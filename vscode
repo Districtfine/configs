@@ -1,0 +1,42 @@
+{
+    "editor.tabSize": 3,
+    "editor.fontSize": 16,
+    "workbench.editor.tabSizing": "shrink",
+    "vim.disableAnnoyingNeovimMessage": true,
+    "vim.easymotion": true,
+    "vim.surround": true,
+    "vim.insertModeKeyBindings": [
+       {
+       "before": ["j", "j"],
+       "after": ["<Esc>"]
+       }
+    ],
+    "editor.wordWrap": "off",
+    "vim.useCtrlKeys": false,
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "window.menuBarVisibility": "toggle",
+    "[plaintext]": {
+       "editor.wordWrap": "on"
+    },
+    "[markdown]": {
+       "editor.wordWrap": "on"
+    },
+    "files.associations": {
+       "*.fmw": "properties",
+       "SConscript": "python"
+    },
+    "workbench.panel.location": "bottom",
+    "editor.minimap.enabled": false,
+    "workbench.activityBar.visible": true,
+    "[python]": {
+       "editor.tabSize": 4
+    },
+    "workbench.colorTheme": "Visual Studio Dark",
+    "editor.dragAndDrop": false,
+    "extensions.ignoreRecommendations": false,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "window.zoomLevel": 0,
+    "workbench.editor.tabSizing": "shrink"
+ }
+ 
