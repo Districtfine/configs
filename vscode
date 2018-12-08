@@ -27,7 +27,7 @@
     },
     "workbench.panel.location": "bottom",
     "editor.minimap.enabled": false,
-    "workbench.activityBar.visible": true,
+    "workbench.activityBar.visible": false,
     "[python]": {
        "editor.tabSize": 4
     },
@@ -37,6 +37,16 @@
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "window.zoomLevel": 0,
-    "workbench.editor.tabSizing": "shrink"
- }
+    "workbench.editor.tabSizing": "shrink",
+    "git.autofetch": true,
+    "python.linting.pylintEnabled": false,
+    "breadcrumbs.enabled": true,
+    "vim.statusBarColorControl": true,
+    "workbench.colorCustomizations": {
+      "statusBar.background": "#005f5f",
+      "statusBar.noFolderBackground": "#005f5f",
+      "statusBar.debuggingBackground": "#005f5f"
+   },
+    "terminal.integrated.rendererType": "dom"
+}
  
