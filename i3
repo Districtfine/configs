@@ -17,7 +17,7 @@ set $mod Mod4
 font pango:System San Francisco Display 10
 
 # thin borders
-hide_edge_borders both
+hide_edge_borders smart
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -30,7 +30,7 @@ hide_edge_borders both
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec konsole
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -66,11 +66,8 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+u split h
-
-# split in vertical orientation
-bindsym $mod+v split v
+# toggle horizontal/vertical splitting
+bindsym $mod+v split toggle
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -167,7 +164,8 @@ set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676e7d
 set $urgent-bg-color     #e53935
-set $indicator-color     #a0a0a0
+#set $indicator-color     #a0a0a0
+set $indicator-color     #7198ed 
 
 # set window colors
 #                       border             background         text                 indicator
@@ -230,7 +228,7 @@ bindsym $mod+F8 exec mocp --next
 
 # App shortcuts
 bindsym $mod+w exec "/usr/bin/firefox"
-bindsym $mod+n exec "/usr/bin/thunar"
+bindsym $mod+n exec "/usr/bin/dolphin"
 
 # Floating windows
 for_window [class="File-Roller"] floating enable

@@ -2,3 +2,7 @@
 temp-day=5700
 temp-night=2000
 transition=0
+[manual]
+lat=48.7
+lon=-122.3
+48.761181, -122.343332

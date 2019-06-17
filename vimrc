@@ -101,3 +101,6 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix
 
 autocmd BufNewFile,BufRead *.tex set spell "Turn on spellcheck if its a .txt file or .tex file
+if has('mouse')
+  set mouse=a
+endif

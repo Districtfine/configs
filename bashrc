@@ -119,3 +119,10 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8 
+export SPOTIPY_CLIENT_ID='80ad503b54f9444297d776d662538f2f'
+export SPOTIPY_CLIENT_SECRET='0c9ed8e65c544a45a976bd00ef16b31e'
+export SPOTIPY_REDIRECT_URI='http://localhost/'
+export EDITOR=vim
