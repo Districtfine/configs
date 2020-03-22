@@ -118,7 +118,6 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-assign [class="Firefox"] $ws1
 for_window [class="Spotify"] move to workspace $ws2
 assign [class="Steam"] $ws4
 # reload the configuration file
@@ -215,6 +214,9 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+bindsym button9 exec --no-startup-id xdotool key alt+Left
+bindsym button8 exec --no-startup-id xdotool key alt+Right
+
 #bindsym XF86AudioPlay exec mocp --toggle-pause
 #bindsym XF86AudioPause exec mocp --toggle-pause
 #bindsym XF86AudioStop exec mocp --togle-pause
@@ -235,12 +237,10 @@ for_window [class="File-Roller"] floating enable
 # Redirect sound to headphones
 bindsym $mod+m exec "/usr/local/bin/switch-audio-port"
 # Autostart workspaces
-exec firefox
 exec spotify
-exec steam
 # Autostart apps
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id "compton -b"
+exec --no-startup-id "compton --config ~/.config/compton.conf -b"
 exec_always feh --bg-scale /home/arseni/Pictures/wallpapers/wallpaper.jpg
 exec --no-startup-id nm-applet
 exec xset r rate 500 25

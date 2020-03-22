@@ -123,3 +123,11 @@ fi
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8 
 export EDITOR='vim'
+
+export VCL_ICONS_FOR_DARK_THEME=1
+
+# Temporary exports for CMPT 353 spark
+export PYSPARK_PYTHON=python3
+export PATH=${PATH}:/home/arseni/spark-2.4.3-bin-hadoop2.7/bin
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk/jre
+export PULSE_LATENCY_MSEC=5
